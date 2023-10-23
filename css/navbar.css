@@ -1,0 +1,22 @@
+.main-nav {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.main-nav > img {
+    height: 4.5em;
+}
+
+#pages-container {
+    outline: 1px solid red; /* debug */
+    gap: 2rem;
+}
+
+.pages-link {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-family: Philosopher-Bold, sans-serif;
+    color: #019EF3;
+}
