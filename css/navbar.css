@@ -1,17 +1,27 @@
 .main-nav {
-    width: 50%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.main-nav > img {
+#logo-iut {
     height: 4.5em;
 }
 
 #pages-container {
-    outline: 1px solid red; /* debug */
+    display: flex;
     gap: 2rem;
+}
+
+#pages-container > a {
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+#pages-container > a:hover {
+    color: black;
+    letter-spacing: 2px;
+    /*font-size: 1.3rem;*/
 }
 
 .pages-link {
