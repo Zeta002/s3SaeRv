@@ -1,0 +1,15 @@
+{
+    "name": "vendor/autoload",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "ROUBAUD-Axel-2225073b",
+            "email": "axel.roubaud@etu.univ-amu.fr"
+        }
+    ],
+    "require": {}
+}

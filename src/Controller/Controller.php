@@ -4,6 +4,7 @@
 
     use App\src\View\Layout;
 
+
     class Controller
     {
         public static function render(string $title, string $file, array $styles = []): void {
@@ -13,7 +14,7 @@
 
         public static function getView(string $fileName, string $otherDir = ""): string {
             ob_start();
-            require "src/View/" . $otherDir . $fileName;
+            require "src/View/Pages/" . $otherDir . $fileName;
             return ob_get_clean();
         }
     }
