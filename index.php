@@ -1,14 +1,16 @@
 <?php
 
-    require 'vendor/autoload.php';
+use App\src\Controller\Error404Controller;
+use App\src\Controller\HomepageController;
+use App\src\Router\Router;
 
-    $router = new \App\src\Router\Router($_GET['url']);
+$router = new Router($_GET['url']);
 
     $router->get('/', function () {
-        (new \App\src\Controller\HomepageController)->render();
+        (new HomepageController)->render();
     });
     $router->get('/error', function () {
-        (new \App\src\Controller\Error404Controller())->render();
+        (new Error404Controller())->render();
     });
 
     $router->run();
