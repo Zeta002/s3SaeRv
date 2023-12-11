@@ -18,4 +18,5 @@ $router->get('/error', function () {
     (new Error404Controller())->render();
 });
 
+
 $router->run();
