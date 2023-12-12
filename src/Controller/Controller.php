@@ -14,7 +14,7 @@
 
         public static function getView(string $fileName, string $otherDir = ""): string {
             ob_start();
-            require "src/View/Pages/" . $otherDir . $fileName;
+                require "src/View/Pages/" . $otherDir . $fileName;
             return ob_get_clean();
         }
     }
