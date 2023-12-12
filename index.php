@@ -7,9 +7,7 @@ use App\src\Controller\PagesController\Error404Controller;
 use App\src\Controller\PagesController\HomepageController;
 use App\src\Router\Router;
 
-$url = $_GET['url'] ?? '/';
-
-$router = new Router($url);
+$router = new Router($_GET['url']);
 
 $router->get('/', function () {
     (new HomepageController)->render();
