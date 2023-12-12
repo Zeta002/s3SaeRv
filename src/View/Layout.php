@@ -8,9 +8,9 @@ class Layout {
     <html lang="fr">
         <head>
             <meta charset="UTF-8">
-            <? foreach ($styles as $style) { ?>
+            <?php foreach ($styles as $style): ?>
                 <link rel="stylesheet" href="/assets/css/stylesheet/<?= $style ?>">
-            <? } ?>
+            <?php endforeach; ?>
             <title><?= $title ?></title>
         </head>
         <body>

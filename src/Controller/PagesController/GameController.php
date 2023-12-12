@@ -5,6 +5,6 @@ use App\src\Controller\Controller;
 class GameController
 {
     public function render(): void {
-        Controller::render("Game", "Game.php");
+        Controller::render("Game", "Game.php", ["main.css", "navbar.css"]);
     }
 }
