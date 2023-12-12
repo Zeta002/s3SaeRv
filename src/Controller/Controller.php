@@ -1,7 +1,7 @@
 <?php
 
     namespace App\src\Controller;
-
+    require 'Constant.php';
     use App\src\View\Layout;
 
 
@@ -14,7 +14,7 @@
 
         public static function getView(string $fileName, string $otherDir = ""): string {
             ob_start();
-            require "src/View/Pages/" . $otherDir . $fileName;
+            require SRC . "/View/pages/" . $otherDir . $fileName;
             return ob_get_clean();
         }
     }

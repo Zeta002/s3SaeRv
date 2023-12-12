@@ -3,9 +3,9 @@
 namespace App;
 require './vendor/autoload.php';
 
+use App\src\Controller\PagesController\Error404Controller;
+use App\src\Controller\PagesController\HomepageController;
 use App\src\Router\Router;
-use App\src\Controller\HomepageController;
-use App\src\Controller\Error404Controller;
 
 $url = $_GET['url'] ?? '/';
 
@@ -17,6 +17,5 @@ $router->get('/', function () {
 $router->get('/error', function () {
     (new Error404Controller())->render();
 });
-
 
 $router->run();

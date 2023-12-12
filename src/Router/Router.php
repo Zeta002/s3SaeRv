@@ -2,7 +2,7 @@
 
     namespace App\src\Router;
 
-    use App\src\Controller\Error404Controller;
+    use App\src\Controller\PagesController\Error404Controller;
 
 
     class Router
