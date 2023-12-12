@@ -4,7 +4,6 @@
 
     use App\src\Controller\PagesController\Error404Controller;
 
-
     class Router
     {
         private $url;
