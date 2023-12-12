@@ -5,6 +5,6 @@ use App\src\Controller\Controller;
 class HomepageController
 {
     public function render(): void {
-        Controller::render("Homepage", "Homepage.php");
+        Controller::render("Homepage", "Homepage.php", ["navbar.css"]);
     }
 }

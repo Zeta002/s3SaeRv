@@ -2,18 +2,19 @@
 
 namespace App\src\View;
 
-require "src\View\Header.php";
-
 class Layout {
     public function show(string $title, $content, array $styles = []): void { ?>
 <!DOCTYPE html>
     <html lang="fr">
         <head>
             <meta charset="UTF-8">
-            <link rel="stylesheet" href="/assets/css/stylesheet/main.css">
+            <? foreach ($styles as $style) { ?>
+                <link rel="stylesheet" href="/assets/css/stylesheet/<?= $style ?>">
+            <? } ?>
             <title><?= $title ?></title>
         </head>
         <body>
+            <?php require "src/View/Navbar.php"; ?>
             <?= $content ?>
         </body>
     </html>
