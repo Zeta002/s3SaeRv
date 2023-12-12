@@ -5,6 +5,6 @@ use App\src\Controller\Controller;
 class AboutController
 {
     public function render(): void {
-        Controller::render("About", "About.php");
+        Controller::render("About", "About.php", ["main.css", "navbar.css"]);
     }
 }

@@ -4,7 +4,6 @@
     require 'Constant.php';
     use App\src\View\Layout;
 
-
     class Controller
     {
         public static function render(string $title, string $file, array $styles = []): void {

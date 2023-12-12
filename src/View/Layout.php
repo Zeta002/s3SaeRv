@@ -14,7 +14,6 @@ class Layout {
             <title><?= $title ?></title>
         </head>
         <body>
-            <?php require "src/View/Navbar.php"; ?>
             <?= $content ?>
         </body>
     </html>

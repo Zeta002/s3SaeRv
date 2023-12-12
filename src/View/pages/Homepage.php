@@ -1,3 +1,5 @@
+<?php require "src/View/Navbar.php"; ?>
+
 <section class="intro-container">
     <div class="intro">
         <div id="intro-title-container">

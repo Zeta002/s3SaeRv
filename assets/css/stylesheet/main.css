@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Philosopher-Bold';
-    src: url('assets/css/fonts/Philosopher/Philosopher-Bold.ttf');
+    src: url('/assets/css/fonts/Philosopher/Philosopher-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Philosopher-Regular';
-    src: url('assets/css/fonts/Philosopher/Philosopher-Regular.ttf');
+    src: url('/assets/css/fonts/Philosopher/Philosopher-Regular.ttf');
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-image: url("assets/images/bg-intro.png");
+    background-image: url("/assets/images/bg-intro.png");
     height: 25rem;
 }
 
