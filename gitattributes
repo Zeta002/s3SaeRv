@@ -13,7 +13,9 @@
 *.asset merge=unityyamlmerge eol=lf
 *.meta merge=unityyamlmerge eol=lf
 *.controller merge=unityyamlmerge eol=lf
-
+##test moi##
+*.wasm merge=unityyamlmerge eol=lf
+*.data merge=unityyamlmerge eol=lf
 
 ## git-lfs ##
 
