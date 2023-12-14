@@ -15,7 +15,8 @@
 *.controller merge=unityyamlmerge eol=lf
 ##test moi##
 *.wasm merge=unityyamlmerge eol=lf
-*.data merge=unityyamlmerge eol=lf
+*.data filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
 
 ## git-lfs ##
 
