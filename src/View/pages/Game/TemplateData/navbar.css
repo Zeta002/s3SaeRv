@@ -1,0 +1,38 @@
+.main-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Ou 'absolute', si nécessaire */
+    z-index: 10; /* Assurez-vous qu'elle est au-dessus du contenu Unity */
+}
+
+#unity-container {
+    margin-top: 5em; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
+}
+
+#logo-iut {
+    height: 4.5em;
+}
+
+#pages-container {
+    display: flex;
+    gap: 2rem;
+}
+
+#pages-container > a {
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+#pages-container > a:hover {
+    color: black;
+    letter-spacing: 2px;
+    /*font-size: 1.3rem;*/
+}
+
+.pages-link {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-family: Philosopher-Bold, sans-serif;
+    color: #019EF3;
+}
