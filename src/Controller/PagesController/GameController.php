@@ -2,9 +2,9 @@
 
 use App\src\Controller\Controller;
 
-class Error404Controller
+class GameController
 {
     public function render(): void {
-        Controller::renderRaw();
+        Controller::renderIframe( "Game", ["main.css", "navbar.css"] );
     }
 }

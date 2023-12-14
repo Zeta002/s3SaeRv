@@ -6,20 +6,8 @@
     <title>Unity WebGL Player | SAE3_3D</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="stylesheet" href="TemplateData/navbar.css">
 </head>
 <body>
-    <nav class="main-nav">
-        <div id="pages-container">
-            <a class="pages-link" href="/about">A propos</a>
-            <a class="pages-link" href="/src/View/pages/Game/Game.php">Jouer</a>
-            <a class="pages-link" href="/howtoplay">Comment jouer</a>
-            <a class="pages-link" href="/credit">Crédit</a>
-        </div>
-        <a href="https://iut.univ-amu.fr/fr">
-            <img id="logo-iut" src="/assets/images/univ-logo.png" alt="logo de institut universitaire de technologie">
-        </a>
-    </nav>
   <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <!--     <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas> -->

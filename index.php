@@ -6,6 +6,7 @@ require './vendor/autoload.php';
 use App\src\Controller\PagesController\AboutController;
 use App\src\Controller\PagesController\CreditController;
 use App\src\Controller\PagesController\Error404Controller;
+use App\src\Controller\PagesController\GameController;
 use App\src\Controller\PagesController\HomepageController;
 use App\src\Controller\PagesController\HowtoplayController;
 use App\src\Router\Router;
@@ -24,6 +25,10 @@ $router->get('/about', function () {
 
 $router->get('/credit', function () {
     (new CreditController())->render();
+});
+
+$router->get('/game', function () {
+    (new GameController())->render();
 });
 
 $router->get('/howtoplay', function () {
