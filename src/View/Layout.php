@@ -49,11 +49,12 @@ class Layout {
         </head>
         <body>
         <?php require "src/View/Navbar.php"; ?>
-        <iframe
+        <iframe id="iframe"
                 src="/src/View/pages/Game/Game.php"
                 title="Exemple d'iframe"
-                width="1920"
-                height="1080">
+                width="100%"
+                height="850px"
+                style="border: none">
         </iframe>
         </body>
         </html>
