@@ -11,5 +11,7 @@
             "email": "axel.roubaud@etu.univ-amu.fr"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }
