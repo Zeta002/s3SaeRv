@@ -11,9 +11,9 @@
             (new Layout())->display($title, $content, $styles);
         }
 
-        public static function renderRaw(): void {
+        public static function renderRaw(array $styles = []): void {
             $content = Controller::getView("Error404.php");
-            (new Layout())->displayRaw("Error 404", $content);
+            (new Layout())->displayRaw("Error 404", $content, $styles);
         }
 
         public static function getView(string $fileName, string $otherDir = ""): string {
