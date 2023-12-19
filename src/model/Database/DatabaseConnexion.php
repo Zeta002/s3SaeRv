@@ -11,7 +11,7 @@ class DatabaseConnexion
     private string $host = 'localhost';
     private string $db_name = 'hbznqhgb_saerv';
     private string $username = 'hbznqhgb_root';
-    private string $password = '0TTNTzB0G&XT?NN0TB';
+    private string $password = 'o!o9okksd9Mo!=M9vM';
 
     public function __construct()
     {

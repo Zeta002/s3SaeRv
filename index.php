@@ -3,10 +3,7 @@
 namespace App;
 require './vendor/autoload.php';
 
-use App\src\Controller\PagesController\AboutController;
-use App\src\Controller\PagesController\CreditController;
-use App\src\Controller\PagesController\HomepageController;
-use App\src\Controller\PagesController\HowtoplayController;
+use App\src\Controller\Controller;
 use App\src\Router\Router;
 
 $url = $_GET['url'] ?? '/';
@@ -14,19 +11,23 @@ $url = $_GET['url'] ?? '/';
 $router = new Router($url);
 
 $router->get('/', function () {
-    (new HomepageController)->render();
+    $controller = new Controller();
+    $controller->render("Homepage", "Homepage.php", ["main.css", "navbar.css"]);
 });
 
 $router->get('/about', function () {
-    (new AboutController())->render();
+    $controller = new Controller();
+    $controller->render("About", "About.php", ["main.css", "navbar.css"]);
 });
 
 $router->get('/credit', function () {
-    (new CreditController())->render();
+    $controller = new Controller();
+    $controller->render("Credit", "Credit.php", ["main.css", "navbar.css"]);
 });
 
 $router->get('/howtoplay', function () {
-    (new HowtoplayController())->render();
+    $controller = new Controller();
+    $controller->render("How to play", "Howtoplay.php", ["main.css", "navbar.css"]);
 });
 
 $router->run();

@@ -2,7 +2,7 @@
 
     namespace App\src\Router;
 
-    use App\src\Controller\PagesController\Error404Controller;
+    use App\src\Controller\Controller;
 
     class Router
     {
@@ -29,7 +29,7 @@
         public function run()
         {
             if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
-                (new Error404Controller())->render();
+                (new Controller())->renderRaw();
                 exit();
             }
             foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
@@ -37,7 +37,7 @@
                     return $route->call();
                 }
             }
-            (new Error404Controller())->render();
+            (new Controller())->renderRaw();
             exit();
         }
     }
