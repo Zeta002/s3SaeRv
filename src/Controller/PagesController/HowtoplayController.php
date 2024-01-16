@@ -6,6 +6,6 @@ class HowtoplayController
 {
     public function render(): void
     {
-        Controller::render("Howtoplay", "Howtoplay.php", ["main.css" ,"navbar.css", "doc.css"]);
+        Controller::render("Howtoplay", "Howtoplay.php", ["main.css" ,"navbar.css", "howtoplay.css"]);
     }
 }
