@@ -27,7 +27,7 @@ $router->get('/credit', function () {
 
 $router->get('/howtoplay', function () {
     $controller = new Controller();
-    $controller->render("How to play", "Howtoplay.php", ["main.css", "navbar.css"]);
+    $controller->render("How to play", "Howtoplay.php", ["main.css", "navbar.css", "howtoplay.css"]);
 });
 
 $router->run();
