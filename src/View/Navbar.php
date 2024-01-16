@@ -8,4 +8,4 @@
     <a href="https://iut.univ-amu.fr/fr">
         <img id="logo-iut" src="/assets/images/univ-logo.png" alt="logo de institut universitaire de technologie">
     </a>
-</nav>
+</nav> 
