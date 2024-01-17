@@ -50,7 +50,7 @@ class Layout {
         <body>
         <?php require "src/View/Navbar.php"; ?>
         <iframe id="iframe"
-                src="/src/View/pages/Game/Game.php"
+                src="/src/View/pages/BuildSAE3D/Game.php"
                 title="Exemple d'iframe"
                 width="100%"
                 height="850px"
