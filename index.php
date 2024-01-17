@@ -17,7 +17,7 @@ $router->get('/', function () {
 
 $router->get('/about', function () {
     $controller = new Controller();
-    $controller->render("About", "About.php", ["main.css", "navbar.css"]);
+    $controller->render("Homepage", "Homepage.php", ["main.css", "navbar.css"]);
 });
 
 $router->get('/credit', function () {
@@ -30,4 +30,10 @@ $router->get('/howtoplay', function () {
     $controller->render("How to play", "Howtoplay.php", ["main.css", "navbar.css", "howtoplay.css"]);
 });
 
+$router->get('/game', function () {
+    $controller = new Controller();
+    $controller->renderIframe("Jeu", ["main.css", "navbar.css"]);
+});
+
 $router->run();
+
