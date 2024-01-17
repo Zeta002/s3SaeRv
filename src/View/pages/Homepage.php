@@ -14,4 +14,5 @@
 </section>
 <section id="content">
     <h1>Objectifs pédagogique</h1>
+    <p  id="pedagog">repondre aux mieux aux attente du client attribué  lié aux projet , travaille en equipe , mobiliser du mieux possible nos connaissance, faire de la veille informatique</p>
 </section>

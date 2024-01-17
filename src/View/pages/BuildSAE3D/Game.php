@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
 <body>
-<body>
 <div id="unity-fullscreen-button"></div>
 <div id="unity-container" class="unity-desktop">
     <canvas id="unity-canvas" width=1800 height=790 tabindex="-1"></canvas>
