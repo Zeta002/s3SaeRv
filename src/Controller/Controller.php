@@ -16,6 +16,10 @@ class Controller
         (new Layout())->displayRaw("Error 404", $content, $styles);
     }
 
+    public static function renderIframe(string $title, array $styles = []): void {
+        (new Layout())->displayGame($title, $styles);
+    }
+
     public static function getView(string $fileName, string $otherDir = ""): string {
         ob_start();
         require SRC . "/View/pages/" . $otherDir . $fileName;
