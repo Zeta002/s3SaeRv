@@ -1,42 +1,60 @@
+/*carousel*/
 
-#centered-image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    display: block;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-#centered-image img {
+.custom-slider img {
     width: 100%;
-    display: block;
+    height: 400px;
+    object-fit: cover;
 }
-
-#sommaire {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding-right: 10rem;
-    margin-bottom: 20px;
-}
-
-#sommaire a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    padding: 5px;
-
-}
-
-#sommaire a:hover {
-    background-color: #ddd;
-}
-
-#button {
+.slide-counter {
     position: absolute;
-    right: 10px;
-    width: 50px;
-    height: 50px;
+    top: 5px;
+    left: 5px;
+    transform: translate(0, 0);
+    color: #fff;
+    font-size: 1.2rem;
 }
 
+.prev, .next {
+    position: absolute;
+    bottom: 12rem;
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+    transform: translate(0, 0);
+}
+
+.next {
+    right: 10px;
+    transform: translate(0, 0);
+}
+
+.carroussel-container {
+    position: relative;
+}
+
+.slide-dot {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: #000;
+}
