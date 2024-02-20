@@ -1,0 +1,42 @@
+
+#centered-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    display: block;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#centered-image img {
+    width: 100%;
+    display: block;
+}
+
+#sommaire {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding-right: 10rem;
+    margin-bottom: 20px;
+}
+
+#sommaire a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 5px;
+
+}
+
+#sommaire a:hover {
+    background-color: #ddd;
+}
+
+#button {
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
