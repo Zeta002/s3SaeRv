@@ -1,3 +1,5 @@
+<h1> Documentation</h1>
+
 <div class="carroussel-container">
     <div class="slide-container">
         <h1 id="start-title">Start</h1>
