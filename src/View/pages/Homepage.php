@@ -17,3 +17,6 @@
     <p id="pedagog">Répondre aux mieux aux attente du client attribué lié aux projet , travaille en equipe ,<br>
         mobiliser du mieux possible nos connaissance, faire de la veille informatique</p>
 </section>
+
+<?php $test = new \App\src\model\Database\dbTest();
+var_dump($test->test());
