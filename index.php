@@ -16,7 +16,9 @@ $router = new Router($url);
 /**
  * Route for the home page.
  */
-$router->get('/', function () {
+$router->get(/**
+ * @return void
+ */ '/', function () {
     /**
      * @var Controller $controller
      */
@@ -27,7 +29,9 @@ $router->get('/', function () {
 /**
  * Route for the 'about' page.
  */
-$router->get('/about', function () {
+$router->get(/**
+ * @return void
+ */ '/about', function () {
     /**
      * @var Controller $controller
      */
@@ -38,7 +42,9 @@ $router->get('/about', function () {
 /**
  * Route for the 'credit' page.
  */
-$router->get('/credit', function () {
+$router->get(/**
+ * @return void
+ */ '/credit', function () {
     /**
      * @var Controller $controller
      */
@@ -49,7 +55,9 @@ $router->get('/credit', function () {
 /**
  * Route for the 'howtoplay' page.
  */
-$router->get('/howtoplay', function () {
+$router->get(/**
+ * @return void
+ */ '/howtoplay', function () {
     /**
      * @var Controller $controller
      */
@@ -60,7 +68,9 @@ $router->get('/howtoplay', function () {
 /**
  * Route for the 'game' page.
  */
-$router->get('/game', function () {
+$router->get(/**
+ * @return void
+ */ '/game', function () {
     /**
      * @var Controller $controller
      */

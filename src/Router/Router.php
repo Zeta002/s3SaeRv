@@ -9,7 +9,13 @@ use App\src\Controller\Controller;
  */
 class Router
 {
+    /**
+     * @var string
+     */
     private $url;
+    /**
+     * @var array
+     */
     private $routes = [];
 
     /**

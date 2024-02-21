@@ -9,7 +9,13 @@ use PDO;
  */
 class UnityWebRequest
 {
+    /**
+     * @var PDO
+     */
     private PDO $dbPDO;
+    /**
+     * @var string|mixed
+     */
     private string $ResultaField;
 
     /**

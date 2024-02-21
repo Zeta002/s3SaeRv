@@ -7,8 +7,17 @@ namespace App\src\Router;
  */
 class Route
 {
+    /**
+     * @var string
+     */
     private $path;
+    /**
+     * @var callable
+     */
     private $callable;
+    /**
+     * @var
+     */
     private $matches;
 
     /**

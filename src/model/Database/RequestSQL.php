@@ -4,10 +4,19 @@ namespace App\src\model\Database;
 
 use PDO;
 
+/**
+ *
+ */
 abstract class RequestSQL
 {
+    /**
+     * @var PDO
+     */
     private PDO $dbPDO;
 
+    /**
+     *
+     */
     public function __construct() {
         $db = new DatabaseConnexion();
         $this->dbPDO = $db->getPDO();
