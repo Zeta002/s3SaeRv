@@ -2,7 +2,17 @@
 
 namespace App\src\View;
 
+/**
+ * Layout class to manage the display of pages.
+ */
 class Layout {
+    /**
+     * Displays a page with a navigation bar.
+     *
+     * @param string $title The title of the page.
+     * @param mixed $content The content of the page.
+     * @param array $styles The stylesheets to include.
+     */
     public function display(string $title, $content, array $styles = []): void { ?>
         <!DOCTYPE html>
         <html lang="fr">
@@ -21,6 +31,13 @@ class Layout {
         <?php
     }
 
+    /**
+     * Displays a page without a navigation bar.
+     *
+     * @param string $title The title of the page.
+     * @param mixed $content The content of the page.
+     * @param array $styles The stylesheets to include.
+     */
     public function displayRaw(string $title, $content, array $styles = []): void { ?>
         <!DOCTYPE html>
         <html lang="fr">
@@ -37,6 +54,13 @@ class Layout {
         </html>
         <?php
     }
+
+    /**
+     * Displays a game page with a navigation bar.
+     *
+     * @param string $title The title of the page.
+     * @param array $styles The stylesheets to include.
+     */
     public function displayGame(string $title, array $styles = []): void { ?>
         <!DOCTYPE html>
         <html lang="fr">
@@ -51,7 +75,7 @@ class Layout {
         <?php require "src/View/Navbar.php"; ?>
         <iframe id="iframe"
                 src="../../src/View/pages/Build2/Game.php"
-                title="Jeu"
+                title="Game"
                 width="100%"
                 height="850px"
                 style="border: none">

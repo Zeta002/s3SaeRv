@@ -24,6 +24,6 @@ Le projet est un jeu sous Unity qui vise à enseigner les bases de l'astronomie 
 </section>
 
 
-
+// Path: src/View/Navbar.php
 <?php $test = new \App\src\model\Database\dbTest();
 var_dump($test->test());
