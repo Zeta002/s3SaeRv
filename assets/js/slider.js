@@ -1,71 +1,311 @@
-// Initialize the slide index to the first slide
-let slideIndex = 1;
 
-// Display the first slide
-displaySlide(slideIndex);
+//----------------------------------------------------------//
+//                          Class                           //
+//----------------------------------------------------------//
 
-// Function to change the slide
-function changeSlide(n) {
-    displaySlide(slideIndex += n);
+class Carrousel {
+    constructor(title, slidesData) {
+        this.title = title;
+        this.slidesData = slidesData;
+        this.indexCurrentSlide = 1;
+
+        // init slide[] and all html element slide
+        this.initSlides();
+
+        // init slide container and add element of this.slidesData
+        this.initSlideContainer();
+
+        this.initCaroussel();
+
+        // update display
+        this.showSlides()
+    }
+
+
+    initDot(){
+        this.dots = [];
+        for(let i = 0; i < this.slides.length; ++i) {
+            let span = document.createElement("span");
+            span.classList.add("dot");
+            span.onclick = () => this.changeSlide(i+1);
+            this.dots.push(span);
+            this.dotContainer.appendChild(span);
+        }
+    }
+
+    initDotContainer(){
+        this.dotContainer = document.createElement("div");
+        this.dotContainer.classList.add("slide-dot");
+        this.initDot();
+
+        this.carrousselContainer.appendChild(this.dotContainer);
+    }
+
+
+    initSlides() {
+        this.slides = [];
+        for (let i = 0; i < this.slidesData.length; ++i) {
+            let slide = new Slide(this.slidesData[i].text, this.slidesData[i].imageSrc);
+            this.slides.push(slide);
+        }
+    }
+
+    initSlideContainer() {
+        this.slideContainer = document.createElement("div");
+
+        this.slideContainer.innerText = "";
+        this.slideContainer.classList.add("slider-container");
+
+        let title = document.createElement("h1");
+        title.innerText = this.title;
+        this.slideContainer.appendChild(title);
+
+        for (let i = 0; i < this.slides.length; ++i) {
+            this.slideContainer.appendChild(this.slides[i].slider);
+        }
+
+        let prev = document.createElement("a");
+        prev.innerText = "❮";
+        prev.classList.add("prev");
+        prev.onclick = () => this.previousSlide();
+        this.slideContainer.appendChild(prev);
+
+        let next = document.createElement("a");
+        next.innerText = "❯";
+        next.classList.add("next");
+        next.onclick = () => this.nextSlide();
+        this.slideContainer.appendChild(next);
+    }
+
+    initCaroussel() {
+        this.carrousselContainer = document.createElement("div");
+        this.carrousselContainer.classList.add("carroussel-container");
+        this.carrousselContainer.appendChild(this.slideContainer);
+
+        let br = document.createElement("br");
+        this.carrousselContainer.appendChild(br);
+
+        this.initDotContainer();
+    }
+
+    nextSlide() {
+        this.changeSlide(this.indexCurrentSlide += 1);
+    }
+
+    previousSlide() {
+        this.changeSlide(this.indexCurrentSlide -= 1);
+    }
+
+    changeSlide(newCurrentSlide) {
+        this.indexCurrentSlide = newCurrentSlide;
+        this.showSlides(this.indexCurrentSlide);
+    }
+
+
+    showSlides() {
+
+        if (this.indexCurrentSlide > this.slides.length) {
+            this.indexCurrentSlide = 1;
+        }
+        if (this.indexCurrentSlide < 1) {
+            this.indexCurrentSlide = this.slides.length;
+        }
+        for (let i = 0; i < this.slides.length; i++) {
+            this.slides[i].slider.style.display = "none";
+        }
+        for (let i = 0; i < this.dots.length; i++) {
+            this.dots[i].className = this.dots[i].className.replace(" active", "");
+        }
+        this.slides[this.indexCurrentSlide - 1].slider.style.display = "block";
+        this.dots[this.indexCurrentSlide - 1].className += " active";
+    }
 }
 
-// Function to set the current slide
-function currentSlide(n) {
-    // Display the current slide
-    displaySlide(slideIndex = n);
-}
-
-// Function to display a slide
-function displaySlide(n) {
-    let i;
-    let slides = document.getElementsByClassName("custom-slider");
-    let dots = document.getElementsByClassName("dot");
-    let titles = ["start-title", "loupe-title", "temps-title", "rotation-title", "quizz-title-1", "quizz-title-2", "quizz-title-3"];
-
-    // If the slide index is greater than the number of slides, reset it to the first slide
-    if (n > slides.length) {slideIndex = 1}
-    // If the slide index is less than 1, set it to the last slide
-    if (n < 1) {slideIndex = slides.length}
-    // Hide all slides
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+class Slide {
+    constructor(text, image) {
+        this.text = text;
+        // lien de l'image
+        this.image = image;
+        // init this.slider
+        this.init();
     }
-    // Remove the active class from all dots
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    // Display the current slide
-    slides[slideIndex-1].style.display = "block";
-    // Add the active class to the current dot
-    dots[slideIndex-1].className += " active";
 
-    // Hide all titles
-    titles.forEach(title => {
-        document.getElementById(title).style.display = "none";
-    });
+    init() {
+        this.slider = document.createElement("div");
+        let text = document.createElement("p");
+        let img = document.createElement("img");
 
-    // If the slide index is less than or equal to the number of titles, display the current title
-    if (slideIndex <= titles.length) {
-        document.getElementById(titles[slideIndex - 1]).style.display = "block";
+        text.innerText = this.text;
+        img.src = this.image;
+
+        this.slider.classList.add("custom-slider", "fade");
+        img.classList.add("slide-img");
+
+        this.slider.appendChild(text);
+        this.slider.appendChild(img);
+
     }
 }
 
-// Add event listener for the previous button
-document.querySelector('.prev').addEventListener('click', function() {
-    changeSlide(-1);
-});
 
-// Add event listener for the next button
-document.querySelector('.next').addEventListener('click', function() {
-    changeSlide(1);
-});
 
-// Add event listener for the arrow keys
-window.addEventListener('keydown', function(event) {
-    if (event.key === "ArrowLeft") {
-        changeSlide(-1);
+
+//----------------------------------------------------------//
+//                      Slide Data                          //
+//----------------------------------------------------------//
+
+
+// Données pour les slides
+
+const screenData = [
+    {
+        text: 'Quand vous arrivez sur la page \"jouer\", vous pouvez remarquer la présence d\'un bouton situé en haut a gauche de l\'écran',
+        imageSrc: '/assets/images/screen/img_1.png'
+    },
+    {
+        text: 'Cliqué dessus et vous pourrez profiter du jeu en plein écran',
+        imageSrc: '/assets/images/screen/img_2.png'
+    },
+];
+
+const hoursData = [
+    {
+        text: 'Vous trouverez ici les boutons vous permettant de changer l\'heure de la simulation',
+        imageSrc: '/assets/images/hour/img_1.png'
+    },
+    {
+        text: 'Vous pouvez entrer dirrectement une heure précise grace au dropdown de l\'heure',
+        imageSrc: '/assets/images/hour/img_2.png'
+    },
+    {
+        text: 'Ou encore faire défiler la journée avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/hour/img_3.png'
+    },
+    {
+        text: 'Ou encore faire défiler la journée avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/hour/img_4.png'
+    },
+    {
+        text: 'Ou encore faire défiler la journée avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/hour/img_5.png'
+    },
+    {
+        text: 'Ou encore faire défiler la journée avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/hour/img_6.png'
+    },
+    {
+        text: 'Ou encore faire défiler la journée avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/hour/img_7.png'
     }
-    else if (event.key === "ArrowRight") {
-        changeSlide(1);
+];
+
+
+
+const dateData = [
+    {
+        text: 'Vous trouverez ici les boutons vous permettant de changer la date de la simulation',
+        imageSrc: '/assets/images/date/img_1.png'
+    },
+    {
+        text: 'Vous pouvez entrer dirrectement un jour et un mois précis grace au deux dropdowns de la date',
+        imageSrc: '/assets/images/date/img_2.png'
+    },
+    {
+        text: 'Ou encore faire défiler les jours avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/date/img_3.png'
+    },
+    {
+        text: 'Ou encore faire défiler les jours avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/date/img_4.png'
+    },
+    {
+        text: 'Ou encore faire défiler les jours avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/date/img_5.png'
     }
-});
+];
+
+const cameraData = [
+    {
+        text: 'Vous trouverez ici les boutons vous permettant de bouger l\'apperçut de la caméra',
+        imageSrc: '/assets/images/camera/img_1.png'
+    },
+    {
+        text: 'Le quizz est apparue. Maintenant sert toi de tes connaissances et des sliders pour répondre aux questions',
+        imageSrc: '/assets/images/camera/img_2.png'
+    },
+    {
+        text: 'Ensuite pour finir valide ta réponse',
+        imageSrc: '/assets/images/camera/img_3.png'
+    },
+    {
+        text: 'Ou encore faire défiler les jours avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/camera/img_4.png'
+    },
+    {
+        text: 'Ou encore faire défiler les jours avec le slider situé juste en dessous',
+        imageSrc: '/assets/images/camera/img_5.png'
+    }
+];
+
+const playData = [
+    {
+        text: 'Vous trouverez ici les boutons vous permettant de gérer le lancement de la simulation. Celle ci sera automatiquement en mode play au lancement de l\'application',
+        imageSrc: '/assets/images/play/img_1.png'
+    },
+    {
+        text: 'Clicker sur pause pour arreter la simulation',
+        imageSrc: '/assets/images/play/img_2.png'
+    },
+    {
+        text: 'Clicker sur play pour lancer la simulation',
+        imageSrc: '/assets/images/play/img_3.png'
+    },
+    {
+        text: 'Clicker sur accelerate pour accélérer le déroulement de la simulation',
+        imageSrc: '/assets/images/play/img_4.png'
+    },
+    {
+        text: 'Pour vous aider à vous repérer vous pouvez regarder en bas à droite de la fenêtre, cela vous indiquera l\'heure le la simulation.',
+        imageSrc: '/assets/images/play/img_5.png'
+    }
+];
+
+const quizzData = [
+    {
+        text: 'pour accéder au quizz il suffit de clické sur le bouton start',
+        imageSrc: '/assets/images/quizz/img_1.png'
+    },
+    {
+        text: 'Le quizz est apparue. Maintenant sert toi de tes connaissances et des sliders pour répondre aux questions',
+        imageSrc: '/assets/images/quizz/img_3.png'
+    },
+    {
+        text: 'Ensuite pour finir valide ta réponse',
+        imageSrc: '/assets/images/quizz/img_4.png'
+    }
+];
+
+
+
+
+//----------------------------------------------------------//
+//                          Sript                           //
+//----------------------------------------------------------//
+
+let c1 = new Carrousel("Mode Plein Ecran", screenData);
+let c2 = new Carrousel("Le Cycle jour / nuit", hoursData);
+let c3 = new Carrousel("Le Cycle Des Saisons", dateData);
+let c4 = new Carrousel("Mouvement Caméra", cameraData);
+let c5 = new Carrousel("Gérer La Simulation", playData);
+let c6 = new Carrousel("Quizz", quizzData);
+
+document.body.appendChild(c1.carrousselContainer);
+document.body.appendChild(c2.carrousselContainer);
+document.body.appendChild(c3.carrousselContainer);
+document.body.appendChild(c4.carrousselContainer);
+document.body.appendChild(c5.carrousselContainer);
+document.body.appendChild(c6.carrousselContainer);
+
+
+
+
